@@ -8,7 +8,7 @@
   </head>
   <body class="container">
     <h1>Exercício 1</h1>
-    <form action="exer1resp.php" method="POST">
+    <form action="exer1rp.php" method="POST">
         <div class="row">
             <div class="col">
                 <label for="valor1" class="form-label">Informe o valor 1: </label>
@@ -19,10 +19,9 @@
                 <input type="number" class="form-control" name="valor2" id="valor2">
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-2">
             <div class="col">
-                <button type="submit" class="btn btn-primary">
-                    Enviar </button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
         </div>
     </form>
