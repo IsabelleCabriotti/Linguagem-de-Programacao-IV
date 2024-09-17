@@ -12,20 +12,19 @@ declare(strict_types=1);
   <body>
     <h1>Resposta do Exercício 7</h1>
     <?php
-        function calcularDias($dia1,$dia2) {
-            $dataInicio = DateTime::createFromFormat('d/m/Y', $dia1);
-            $dataFinal = DateTime::createFromFormat('d/m/Y', $dia2);
-
-            $diferenca = $dataInicio->diff($dataFinal);
-            return $diferenca->days;
+        function calcularDias(Datetime $valor1, Datetime $valor2): DateInterval{
+          return $valor1->diff($valor2);
         }
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             try {
-                $dia1 = $_POST['dia1'] ?? '';
-                $dia2 = $_POST['dia2'] ?? '';
+                $valor1 = $_POST['valor1'] ?? 0;
+                $valor2 = $_POST['valor2'] ?? 0;
+                $dia1 = new DateTime($valor1);
+                $dia2 = new DateTime($valor2);
                 $diasDiferenca = calcularDias($dia1, $dia2);
-                echo "<p>A diferença de dias entre as datas é de $diasDiferenca dias</p>";
+                $dias = $diasDiferenca->days;
+                echo "<p>A diferença de dias entre as datas é de $dias dias</p>";
             } catch (Exception $e) {
                 echo "<p class='text-danger'>Erro: " . $e->getMessage() . "</p>";
             }

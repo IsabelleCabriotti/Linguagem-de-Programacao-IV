@@ -11,12 +11,12 @@
     <form action="exer7rp.php" method="POST">
         <div class="row">
             <div class="col">
-                <label for="data1" class="form-label">Digite a data (dd/mm/aaaa): </label>
-                <input type="text" class="form-control" name="data1" id="data1">
+                <label for="valor1" class="form-label">Digite a data (dd/mm/aaaa): </label>
+                <input type="date" class="form-control" name="valor1" id="valor1">
             </div>
             <div class="col">
-                <label for="data2" class="form-label">Digite a data (dd/mm/aaaa): </label>
-                <input type="text" class="form-control" name="data2" id="data2">
+                <label for="valor2" class="form-label">Digite a data (dd/mm/aaaa): </label>
+                <input type="date" class="form-control" name="valor2" id="valor2">
             </div>
         </div>
         <div class="row mt-2">
