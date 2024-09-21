@@ -12,6 +12,14 @@ declare(strict_types=1);
   <body>
     <h1>Resposta do Exercício 2</h1>
     <?php
+        function Maiuscula(string $palavra)
+        {
+          return strtoupper($palavra);
+        }
+        function Minusculo(string $palavra)
+        {
+          return strtolower($palavra);
+        }
         if ($_SERVER["REQUEST_METHOD"] == "POST")
         {
             try{

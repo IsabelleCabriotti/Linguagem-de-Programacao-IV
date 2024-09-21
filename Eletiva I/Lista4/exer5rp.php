@@ -12,19 +12,23 @@ declare(strict_types=1);
   <body>
     <h1>Resposta do Exercício 5</h1>
     <?php
-       if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            try {
-                $numero = (int) ($_POST['numero'] ?? 0);
+        function Raiz(int $numero)
+        {
+          return sqrt($numero);
+        }
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+              try {
+                  $numero = (int) ($_POST['numero'] ?? 0);
 
-                if ($numero < 0) {
-                    echo "<p>Não é possivel calcular a raiz quadrada de um número negativo! Tente novamente</p>";
-                } else {
-                    $raizQuadrada = sqrt($numero);
-                    echo "<p>A raiz quadrada do número $numero é: $raizQuadrada</p>";
-                }
-            } catch (Exception $e) {
-                echo "Erro: ".$e->getMessage();
-            }
+                  if ($numero < 0) {
+                      echo "<p>Não é possivel calcular a raiz quadrada de um número negativo! Tente novamente</p>";
+                  } else {
+                      $raizQuadrada = Raiz($numero);
+                      echo "<p>A raiz quadrada do número $numero é: $raizQuadrada</p>";
+                  }
+              } catch (Exception $e) {
+                  echo "Erro: ".$e->getMessage();
+              }
         }
     ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

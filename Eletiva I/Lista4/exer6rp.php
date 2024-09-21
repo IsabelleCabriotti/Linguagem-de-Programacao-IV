@@ -12,10 +12,14 @@ declare(strict_types=1);
   <body>
     <h1>Resposta do Exercício 6</h1>
     <?php
+        function Arrendondar(float $numero)
+        {
+          return round($numero);
+        }
        if ($_SERVER["REQUEST_METHOD"] == "POST") {
             try {
                 $numero = (float) ($_POST['numero'] ?? 0);
-                $numeroArredondado = round($numero);
+                $numeroArredondado = Arrendondar($numero);
                     echo "<p>O número $numero arredondado é: $numeroArredondado</p>";
             } catch (Exception $e) {
                 echo "Erro: ".$e->getMessage();

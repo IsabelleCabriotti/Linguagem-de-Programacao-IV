@@ -12,10 +12,10 @@ declare(strict_types=1);
   <body>
     <h1>Resposta do Exercício 7</h1>
     <?php
-        function calcularDias(Datetime $valor1, Datetime $valor2): DateInterval{
+        function calcularDias(Datetime $valor1, Datetime $valor2): DateInterval
+        {
           return $valor1->diff($valor2);
         }
-
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             try {
                 $valor1 = $_POST['valor1'] ?? 0;

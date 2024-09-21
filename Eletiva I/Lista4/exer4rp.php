@@ -12,21 +12,28 @@ declare(strict_types=1);
   <body>
     <h1>Resposta do Exercício 4</h1>
     <?php
-       if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            try {
-                $dia = (int) ($_POST['dia'] ?? 0);
-                $mes = (int) ($_POST['mes'] ?? 0);
-                $ano = (int) ($_POST['ano'] ?? 0);
+    function verificarData(int $dia, int $mes, int $ano)
+    {
+      if (checkdate($mes, $dia, $ano))
+        return true;
+      else
+        return false;
+    }
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+          try {
+              $dia = (int) ($_POST['dia'] ?? 0);
+              $mes = (int) ($_POST['mes'] ?? 0);
+              $ano = (int) ($_POST['ano'] ?? 0);
 
-                if (checkdate($mes, $dia, $ano)) {
-                    echo "<p>A data informada é válida: " . sprintf("%02d/%02d/%04d", $dia, $mes, $ano) . "</p>";
-                } else {
-                    echo "<p>A data informada é inválida! Por favor inserir uma data válida.</p>";
-                }
+              if (verificarData($mes, $dia, $ano)) {
+                  echo "<p>A data informada é válida: $dia/$mes/$ano</p>";
+              } else {
+                echo "<p>A data informada é inválida! Por favor inserir uma data válida.</p>";
+              }
             } catch (Exception $e) {
                 echo "Erro: ".$e->getMessage();
             }
-        }
+          }
     ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
