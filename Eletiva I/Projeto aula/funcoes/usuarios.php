@@ -11,13 +11,10 @@ function login(string $email, string $senha)
     $stament = $pdo->query("SELECT * FROM usuario WHERE email = 'adm@adm.com'");
     $usuario = $stament->fetchAll(PDO::FETCH_ASSOC);
     //verifica se o usuario não existe, se não existir, vamos criar
-    if ($usuario == null)
+    if (!$usuario)
     {
-        $pdo->beginTransaction();
-        $senha = password_hash("adm", PASSWORD_BCRYPT);
-        $stament = $pdo->prepare("INSERT INTO usuario (nome, email, senha, nivel) VALUES (?, ?, ?, ?)");
-        $stament->execute(["Administrador", "adm@adm.com", $senha, "adm"]);
-        $pdo->commit();
+        $senha = password_hash('adm', PASSWORD_BCRYPT);
+        novoUsuario('Administrador', 'adm@adm.com', $senha, 'adm');
     }
     //verificar email e senha do usuario
     $stament = $pdo->prepare("SELECT * FROM usuario WHERE email = ?");
