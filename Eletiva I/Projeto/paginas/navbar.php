@@ -24,7 +24,7 @@
             Clientes
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="categorias.php">Gerenciar</a></li>
+            <li><a class="dropdown-item" href="clientes.php">Gerenciar</a></li>
           </ul>
         </li>
 

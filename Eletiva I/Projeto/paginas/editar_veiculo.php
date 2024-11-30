@@ -9,6 +9,7 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         try{
+            $id = intval($_POST['id']);
             $marca = $_POST['marca'];
             $modelo = $_POST['modelo'];
             $ano = intval($_POST['ano']);

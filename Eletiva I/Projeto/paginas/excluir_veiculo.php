@@ -40,6 +40,7 @@
     <p>Tem certeza de que deseja excluir o veiculo abaixo?</p>
 
     <ul>
+        <li><strong>ID: <?= $veiculos['id']?></strong> </li>
         <li><strong>Marca: <?= $veiculos['marca']?></strong> </li>
         <li><strong>Modelo: <?= $veiculos['modelo']?></strong> </li>
         <li><strong>Ano: <?= $veiculos['ano']?></strong> </li>
