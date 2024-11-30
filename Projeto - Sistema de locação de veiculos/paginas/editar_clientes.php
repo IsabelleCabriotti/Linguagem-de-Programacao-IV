@@ -24,6 +24,8 @@
                 if (!empty($nome)) {
                     if (alterarClientes($id, $nome, $cpf, $telefone, $email, $endereco, $cnh)) {
                         $sucesso = "Informações do cliente atualizadas com sucesso!";
+                        header('Location: clientes.php');
+                        exit();
                     }else{
                         $erro = "Erro ao atualizar o cliente, verifique as informações!";
                     }
@@ -51,11 +53,11 @@
     <h2>Editar Cliente</h2>
 
     <?php if (!empty($erro)): ?>
-        <p class="text-danger">$erro</p>
+        <p class="text-danger"><?= $erro ?></p>
     <?php endif; ?>
 
     <?php if (!empty($sucesso)): ?>
-        <p class="text-sucess">$sucesso</p>
+        <p class="text-sucess"><?= $sucesso ?></p>
     <?php endif; ?>
 
     <form method="post">

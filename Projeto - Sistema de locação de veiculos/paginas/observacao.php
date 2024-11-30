@@ -9,7 +9,7 @@
 
 <div class="container mt-5">
     <h2>Gerenciamento de Tipo de Locação</h2>
-    <a href="nova.observacao.php" class="btn btn-success mb-3">Novo Tipo</a>
+    <a href="nova_observacao.php" class="btn btn-success mb-3">Novo Tipo</a>
     <table class="table table-hover table-striped">
         <thead>
             <tr>

@@ -26,6 +26,8 @@
                 if (!empty($id)) {
                     if (alterarAlugueis($id, $cliente_id, $veiculo_id, $contrato_id, $data_inicio, $data_fim)) {
                         $sucesso = "Informações do aluguel atualizadas com sucesso!";
+                        header('Location: alugueis.php');
+                        exit();
                     }else{
                         $erro = "Erro ao atualizar o aluguel, verifique as informações!";
                     }
@@ -53,11 +55,11 @@
     <h2>Editar Aluguel</h2>
 
     <?php if (!empty($erro)): ?>
-        <p class="text-danger">$erro</p>
+        <p class="text-danger"><?= $erro ?></p>
     <?php endif; ?>
 
     <?php if (!empty($sucesso)): ?>
-        <p class="text-sucess">$sucesso</p>
+        <p class="text-sucess"><?= $sucesso ?></p>
     <?php endif; ?>
 
     <form method="post">

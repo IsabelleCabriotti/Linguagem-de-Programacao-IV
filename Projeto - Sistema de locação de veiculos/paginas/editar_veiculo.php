@@ -25,6 +25,8 @@
                 if (!empty($marca)) {
                     if (alterarVeiculos($id, $marca, $modelo, $ano, $placa, $preco_diaria, $preco_semanal, $preco_mensal)) {
                         $sucesso = "Informações do veiculo atualizadas com sucesso!";
+                        header('Location: veiculos.php');
+                        exit();
                     }else{
                         $erro = "Erro ao atualizar o veiculo, verifique as informações!";
                     }
@@ -52,11 +54,11 @@
     <h2>Editar Veiculo</h2>
 
     <?php if (!empty($erro)): ?>
-        <p class="text-danger">$erro</p>
+        <p class="text-danger"><?= $erro ?></p>
     <?php endif; ?>
 
     <?php if (!empty($sucesso)): ?>
-        <p class="text-sucess">$sucesso</p>
+        <p class="text-sucess"><?= $sucesso ?></p>
     <?php endif; ?>
 
     <form method="post">

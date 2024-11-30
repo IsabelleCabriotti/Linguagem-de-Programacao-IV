@@ -2,13 +2,6 @@
     declare(strict_types=1);
     require_once '../config/bancodedados.php';
 
-    function gerarDadosGraficos(): array
-    {
-        global $pdo;
-        $stmt = $pdo->query("SELECT c.id, c.observacao_id, SUM(a.id) as total_alugueis FROM alugueis a INNER JOIN contratos c ON c.id = a.id_contrato GROUP BY c.id");
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
     function buscarContratos() :array
     {
         global $pdo;
@@ -25,10 +18,10 @@
         return $veiculo ? $veiculo : null;
     }
 
-    function criarContratos(float $valor, int $observacao_id, int $datas) :bool
+    function criarContratos(float $valor, int $observacao_id, string $datas) :bool
     {
         global $pdo;
-        $stmt = $pdo->prepare("INSERT INTO contratos (valor, observacao_id, $datas) VALUES (?, ?, ?)");
+        $stmt = $pdo->prepare("INSERT INTO contratos (valor, observacao_id, datas) VALUES (?, ?, ?)");
         return $stmt->execute([$valor, $observacao_id, $datas]);
     }
 

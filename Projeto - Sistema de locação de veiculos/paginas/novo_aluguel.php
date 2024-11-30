@@ -16,10 +16,9 @@
             $cliente_id = intval($_POST['cliente_id']);
             $veiculo_id = intval($_POST['veiculo_id']);
             $contrato_id = intval($_POST['contrato_id']);
-            $id = intval($_POST['id']);
             $data_inicio = $_POST['data_inicio'];
-            $data_sim = $_POST['data_fim'];
-            if (empty($cliente_id) || empty($veiculo_id) || empty($contrato_id) || empty($data_inicio) || empty($data_fim))
+            $data_fim = $_POST['data_fim'];
+            if (empty($cliente_id) || empty($veiculo_id))
             {
                 $erro = "Todos os campos são obrigatorios!";
             }else{
@@ -50,7 +49,7 @@
             <label for="cliente_id" class="form-label">Cliente</label>
             <select name="cliente_id" id="cliente_id" class="form-select" required>
                 <?php foreach($clientes as $cl): ?>
-                    <option value="<?= $cl['id'] ?>"><?= $cl['nome'] ?><?= $cl['cpf'] ?></option>
+                    <option value="<?= $cl['id'] ?>"> <?= $cl['nome'] ?> - <?= $cl['cpf'] ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -58,7 +57,7 @@
             <label for="veiculo_id" class="form-label">Veiculo</label>
             <select name="veiculo_id" id="veiculo_id" class="form-select" required>
                 <?php foreach($veiculos as $v): ?>
-                    <option value="<?= $v['id'] ?>"><?= $v['marca'] ?><?= $v['modelo'] ?><?= $v['placa'] ?></option>
+                    <option value="<?= $v['id'] ?>"> <?= $v['marca'] ?> <?= $v['modelo'] ?> - <?= $v['placa'] ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -66,7 +65,7 @@
             <label for="contrato_id" class="form-label">Contrato</label>
             <select name="contrato_id" id="contrato_id" class="form-select" required>
                 <?php foreach($contratos as $c): ?>
-                    <option value="<?= $c['id'] ?>"><?= $c['id'] ?><?= $c['valor'] ?></option>
+                    <option value="<?= $c['id'] ?>"> <?= $c['id'] ?> - <?= $c['valor'] ?> </option>
                 <?php endforeach; ?>
             </select>
         </div>

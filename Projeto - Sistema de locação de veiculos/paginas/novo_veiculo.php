@@ -6,7 +6,6 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         try{
-            $id = intval($_POST['id']);
             $marca = $_POST['marca'];
             $modelo = $_POST['modelo'];
             $ano = intval($_POST['ano']);
@@ -18,7 +17,7 @@
             {
                 $erro = "Informe os campos obrigatorios!";
             }else{
-                if (criarProduto($marca, $modelo, $ano, $placa, $preco_diaria, $preco_semanal, $preco_mensal))
+                if (criarVeiculos($marca, $modelo, $ano, $placa, $preco_diaria, $preco_semanal, $preco_mensal))
                 {
                     header('Location: veiculos.php');
                     exit();

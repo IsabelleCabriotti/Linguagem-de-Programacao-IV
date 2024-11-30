@@ -23,7 +23,7 @@
             <tr>
                 <td><?= $c['id'] ?></td>
                 <td><?= $c['datas'] ?></td>
-                <td><?= $c['observacao'] ?></td>
+                <td><?= $c['observacao_id'] ?></td>
                 <td><?= $c['valor'] ?></td>
                 <td>
                     <a href="editar_contrato.php?id=<?= $c['id'] ?>" class="btn btn-warning">Editar</a>

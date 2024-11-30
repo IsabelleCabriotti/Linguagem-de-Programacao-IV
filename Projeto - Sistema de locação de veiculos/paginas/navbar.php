@@ -1,4 +1,11 @@
-<nav class="navbar navbar-expand-lg bg-success" data-bs-theme="dark">
+<?php
+    session_start();
+    if(!isset($_SESSION["acesso"]))
+    {
+        header("Location: login.php");
+    }
+?>
+<nav class="navbar navbar-expand-lg" style="background-color: #ff914d; color: black;">
   <div class="container-fluid">
     <a class="navbar-brand" href="/dashboard">Sistema de Gerenciamento de Locação de Veiculos</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,8 +14,6 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
 
-        <!-- Após desenvolver o código em PHP, essa funcionalidade só será visível ao administrador -->
-         <!-- Início -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Usuários
@@ -17,7 +22,6 @@
             <li><a class="dropdown-item" href="usuarios.php">Gerenciar</a></li>
           </ul>
         </li>
-         <!-- Fim -->
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -43,7 +47,6 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="contratos.php">Gerenciar</a></li>
-            <li><a class="dropdown-item" href="relatorio_compras.php">Relatórios</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">

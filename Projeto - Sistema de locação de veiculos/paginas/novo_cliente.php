@@ -6,7 +6,6 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         try{
-            $id = intval($_POST['id']);
             $nome = $_POST['nome'];
             $cpf = $_POST['cpf'];
             $telefone = ($_POST['telefone']);
@@ -58,7 +57,7 @@
         </div>
         <div class="mb-3">
             <label for="endereco" class="form-label">Endereço</label>
-            <input type="number" name="endereco" id="endereco" class="form-control" required>
+            <input type="text" name="endereco" id="endereco" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="cnh" class="form-label">CNH</label>

@@ -2,18 +2,21 @@
     require_once 'cabecalho.php'; 
     require_once 'navbar.php';
     require_once '../funcoes/contratos.php';
+    require_once '../funcoes/observacao.php';
+
+    $observacao = buscarObservacao();
 
     if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         try{
-            $id = intval($_POST['id']);
-            $observacao = $_POST['observacao'];
+            $observacao = $_POST['observacao_id'];
             $valor = floatval($_POST['valor']);
-            if (empty($tipo_locacao) || empty($valor))
+            $datas = $_POST['datas'];
+            if (empty($observacao) || empty($valor) || empty($datas))
             {
                 $erro = "Informe todos os campos obrigatorios!";
             }else{
-                if (criarContratos($valor, $observacao_id, $datas))
+                if (criarContratos($valor, $observacao, $datas))
                 {
                     header('Location: contratos.php');
                     exit();
@@ -42,7 +45,7 @@
         </div>
         <div class="mb-3">
             <label for="observacao" class="form-label">Tipo Locação</label>
-            <select name="observacao" id="observacao" class="form-select" required>
+            <select name="observacao_id" id="nome" class="form-select" required>
                 <?php foreach($observacao as $o): ?>
                     <option value="<?= $o['id'] ?>"><?= $o['nome'] ?></option>
                 <?php endforeach; ?>

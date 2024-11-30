@@ -11,14 +11,14 @@
     function criarObservacao(string $nome) :bool
     {
         global $pdo;
-        $stmt = $pdo->prepare("INSERT INTO observacao (nome, observacao_id) VALUES (?, ?)");
+        $stmt = $pdo->prepare("INSERT INTO observacao (nome) VALUES (?)");
         return $stmt->execute([$nome]);
     }
 
     function alterarObservacao(int $id, string $nome) :bool
     {
         global $pdo;
-        $stmt = $pdo->prepare("UPDATE observacao SET nome = ?, observacao_id = ? WHERE id = ?");
+        $stmt = $pdo->prepare("UPDATE observacao SET nome = ? WHERE id = ?");
         return $stmt->execute([$nome, $id]);
     }
 

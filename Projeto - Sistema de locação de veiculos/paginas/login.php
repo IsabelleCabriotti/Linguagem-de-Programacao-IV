@@ -28,6 +28,23 @@
     require_once 'cabecalho.php'; ?>
 
 <div class="container mt-5">
+    <style>
+    body {
+        background-color: #f0f0f0;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo img {
+            max-width: 150px;
+            height: auto;
+        }
+    </style>
+    <div class="logo">
+        <img src="\imagem\logo.png" alt="Logo">
+    </div>
     <h2>Login</h2>
     <form method="post">
         <div class="mb-3">

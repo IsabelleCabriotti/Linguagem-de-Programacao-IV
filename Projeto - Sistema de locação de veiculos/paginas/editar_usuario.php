@@ -21,12 +21,16 @@
                 if (!empty($senha)) {
                     if (atualizarUsuarioSenha($id, $nome, $email, $senha)) {
                         $sucesso = "Informações do usuário atualizadas com sucesso!";
+                        header('Location: usuarios.php');
+                        exit();
                     }else{
                         $erro = "Erro ao atualizar o usuário, verifique as informações!";
                     }
                 }else{
                     if (atualizarUsuario($id, $nome, $email)) {
                         $sucesso = "Informações do usuário atualizadas com sucesso!";
+                        header('Location: usuarios.php');
+                        exit();
                     } else {
                         $erro = "Erro ao atualizar o usuário, verifique as informações!";
                     }
@@ -54,11 +58,11 @@
     <h2>Editar Usuário</h2>
 
     <?php if (!empty($erro)): ?>
-        <p class="text-danger">$erro</p>
+        <p class="text-danger"><?= $erro ?></p>
     <?php endif; ?>
 
     <?php if (!empty($sucesso)): ?>
-        <p class="text-sucess">$sucesso</p>
+        <p class="text-sucess"><?= $sucesso ?></p>
     <?php endif; ?>
 
     <form method="post">

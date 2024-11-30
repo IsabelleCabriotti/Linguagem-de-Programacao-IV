@@ -2,6 +2,13 @@
     declare(strict_types=1);
     require_once '../config/bancodedados.php';
 
+    function gerarDadosGraficos(): array
+    {
+        global $pdo;
+        $stmt = $pdo->query("SELECT v.id AS veiculo_id, v.marca, v.modelo, v.placa, COUNT(a.id) AS total_alugueis FROM veiculos v LEFT JOIN alugueis a ON a.id_veiculo = v.id GROUP BY v.id");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     function buscarVeiculos() :array
     {
         global $pdo;
