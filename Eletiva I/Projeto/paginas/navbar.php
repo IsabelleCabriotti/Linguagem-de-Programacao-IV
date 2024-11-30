@@ -48,6 +48,14 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Alugueis
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="alugueis.php">Gerenciar</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Tipo Locação
           </a>
           <ul class="dropdown-menu">
