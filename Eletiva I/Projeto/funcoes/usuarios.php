@@ -56,3 +56,16 @@ function retornaUsuarioPorId(int $id) :?array
     $usuario = $stament->fetch(PDO::FETCH_ASSOC);
     return $usuario ? $usuario : null;
 }
+function atualizarUsuarioSenha(int $id, string $nome, string $email, string $senha): bool
+{
+    global $pdo;
+    $senha_criptografada = password_hash($senha, PASSWORD_BCRYPT);
+    $stament = $pdo->prepare("UPDATE usuario SET nome = ?, email = ?, senha = ? WHERE id = ?");
+    return $stament->execute([$nome, $email, $senha_criptografada, $id]);
+}
+function atualizarUsuario(int $id, string $nome, string $email): bool
+{
+    global $pdo;
+    $stament = $pdo->prepare("UPDATE usuario SET nome = ?, email = ? WHERE id = ?");
+    return $stament->execute([$nome, $email, $id]);
+}
